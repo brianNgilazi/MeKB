@@ -1,16 +1,30 @@
-﻿<%@ Page Title="Answered Questions" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Feed.aspx.cs" Inherits="Capstone_Project.UsersList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConfirmQuestion.aspx.cs" Inherits="Capstone_Project.ConfirmQuestion" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+     <div class="row">
+            <div class="col">
+                <asp:TextBox runat="server" ReadOnly="false" Height="58px" Width="474px" ID="QuestionBox" Wrap="true" Rows="3" TextMode="MultiLine" Columns="70"></asp:TextBox>
+               
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="QuestionBox"
+                        CssClass="text-danger" Display="Dynamic" ErrorMessage="Please Enter A Question."  />
+                
+                 <br />
+             
+            </div>
+            <br />
+            <div><asp:CheckBox runat="server" Checked="false" ID="checkbox" Text="Make Public (Add to feed when answered)" /></div>
+            
+            <br />
+            <asp:Button runat="server" OnClick="Submit_Question" Text="Submit" CssClass="btn btn-default" Height="46px" />
+            
+       </div>
     <section>
-        <div>
-            <hgroup>
-                <h2><%: Page.Title %></h2>
-            </hgroup>
+        <h2>Checkout these simiar questions before submitting</h2>
     <asp:ListView ID="ListView1" runat="server" DataKeyNames="QuestionID"
-         ItemType="Capstone_Project.Models.Question" SelectMethod="GetQuestions" GroupItemCount="1">
-        <EmptyDataTemplate>
+         ItemType="Capstone_Project.Models.Question" SelectMethod="GetSimilarQuestions" GroupItemCount="1" >
+         <EmptyDataTemplate>
                     <table >
                         <tr>
-                            <td>No Rejected Answers.</td>
+                            <td>No similar questions found.</td>
                         </tr>
                     </table>
                 </EmptyDataTemplate>
@@ -28,7 +42,6 @@
                             <tr>
                             <tr>
                                 <td>
-                                    <a>
                                         <span>
                                             <%#:Item.Details%>
                                         </span>
@@ -38,9 +51,6 @@
                                         <b>Answer: </b><%#:String.Format("{0}", Item.Answer)%> 
                                     </span>
                                     <br />
-                                    <span>
-                                        <%#:String.Format("{0}", Item.TimeAsked.ToShortDateString())%> 
-                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -68,6 +78,6 @@
                     </table>
                 </LayoutTemplate>
             </asp:ListView>
-            </div>
-        </section>
+
+    </section>
 </asp:Content>

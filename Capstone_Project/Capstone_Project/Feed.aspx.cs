@@ -24,7 +24,7 @@ namespace Capstone_Project
         public IQueryable<Capstone_Project.Models.Question> GetQuestions()
         {
             UserContext db = new UserContext();
-            var query = db.Questions.Where(q => q.Answered == true);
+            var query = db.Questions.Where(q => q.Answered && q.Share);
             return query;
         }
     }
