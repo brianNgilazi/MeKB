@@ -18,7 +18,7 @@ namespace Capstone_Project.Account
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text, StudentNumber=StudentNumber.Text, Role=0};
+            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text, StudentNumber=StudentNumber.Text, Role=Convert.ToInt16(categoryList.SelectedValue)};
             IdentityResult result = RoleActions.AddUserAndRole(user, Password.Text);//manager.Create(user, Password.Text);
             if (result.Succeeded)
             {

@@ -43,10 +43,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=17.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <HintPath>..\packages\AjaxControlToolkit.17.1.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -203,8 +199,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="MyQuestions.aspx" />
-    <Content Include="ConfirmQuestion.aspx" />
+    <Content Include="AskedQuestions.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -242,14 +237,11 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Home.aspx" />
-    <Content Include="MentorAdmin\AnswerQuestion.aspx" />
     <Content Include="MentorAdmin\QuestionsToAnswer.aspx" />
     <Content Include="MentorAdmin\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\logo.jpg" />
     <Content Include="Images\logo.png" />
-    <Content Include="QuestionDetails.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -417,19 +409,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="MyQuestions.aspx.cs">
-      <DependentUpon>MyQuestions.aspx</DependentUpon>
+    <Compile Include="AskedQuestions.aspx.cs">
+      <DependentUpon>AskedQuestions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MyQuestions.aspx.designer.cs">
-      <DependentUpon>MyQuestions.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ConfirmQuestion.aspx.cs">
-      <DependentUpon>ConfirmQuestion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ConfirmQuestion.aspx.designer.cs">
-      <DependentUpon>ConfirmQuestion.aspx</DependentUpon>
+    <Compile Include="AskedQuestions.aspx.designer.cs">
+      <DependentUpon>AskedQuestions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -609,21 +594,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Logic\RoleActions.cs" />
-    <Compile Include="MentorAdmin\AnswerQuestion.aspx.cs">
-      <DependentUpon>AnswerQuestion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MentorAdmin\AnswerQuestion.aspx.designer.cs">
-      <DependentUpon>AnswerQuestion.aspx</DependentUpon>
-    </Compile>
     <Compile Include="MentorAdmin\QuestionsToAnswer.aspx.cs">
       <DependentUpon>QuestionsToAnswer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -640,13 +611,6 @@
     <Compile Include="Models\UserContext.cs" />
     <Compile Include="Models\UserDatabaseInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuestionDetails.aspx.cs">
-      <DependentUpon>QuestionDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="QuestionDetails.aspx.designer.cs">
-      <DependentUpon>QuestionDetails.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

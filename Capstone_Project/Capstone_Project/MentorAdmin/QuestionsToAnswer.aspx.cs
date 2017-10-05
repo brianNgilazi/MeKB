@@ -12,23 +12,30 @@ namespace Capstone_Project.MentorAdmin
     public partial class QuestionsToAnswer : System.Web.UI.Page
     {
 
-      
+        private int selectedId;
         protected void Page_Load(object sender, EventArgs e)
         {
              
         }
 
+        // The return type can be changed to IEnumerable, however to support
+        // paging and sorting, the following parameters must be added:
+        //     int maximumRows
+        //     int startRowIndex
+        //     out int totalRowCount
+        //     string sortByExpression
+       
+
+        // The return type can be changed to IEnumerable, however to support
+        // paging and sorting, the following parameters must be added:
+        //     int maximumRows
+        //     int startRowIndex
+        //     out int totalRowCount
+        //     string sortByExpression
         public IQueryable<Capstone_Project.Models.Question> questionGrid_GetData()
         {
             UserContext db = new UserContext();
-            var query = db.Questions.Where(q => q.Answered==false ).OrderByDescending(q =>q.TimeAsked);
-            return query;
-        }
-
-        public IQueryable<Capstone_Project.Models.Question> GetRejected()
-        {
-            UserContext db = new UserContext();
-            var query = db.Questions.Where(q => q.Mentor==Context.User.Identity.Name && q.Answered && !q.Accepted).OrderByDescending(q => q.TimeAsked);
+            var query = db.Questions.Where(q => q.Answered==false );
             return query;
         }
 
@@ -42,7 +49,7 @@ namespace Capstone_Project.MentorAdmin
 
                 Question item = null;
                 int id = QuestionID;
-              
+                Console.Out.Write(id);
                 item = db.Questions.Find(id);
                 if (item == null)
                 {
@@ -51,7 +58,6 @@ namespace Capstone_Project.MentorAdmin
                     return;
                 }
                 item.Answered = true;
-                item.Mentor = Context.User.Identity.Name;
                 TryUpdateModel(item);
                 if (ModelState.IsValid)
                 {
@@ -85,21 +91,9 @@ namespace Capstone_Project.MentorAdmin
             }
         }
 
-        public int unansweredCount()
+        protected void questionGrid_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UserContext db = new UserContext();
-            var query = db.Questions.Where(q => q.Answered == false).Count();
-            return query;
+           
         }
-
-        public int rejectedCount()
-        {
-            UserContext db = new UserContext();
-            var query = db.Questions.Where(q => q.Mentor == Context.User.Identity.Name && q.Answered == true && q.Accepted==false).Count();
-            return query;
-        }
-
-
-
     }
 }

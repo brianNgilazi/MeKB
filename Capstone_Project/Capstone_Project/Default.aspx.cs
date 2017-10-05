@@ -15,6 +15,22 @@ namespace Capstone_Project
 
         }
 
-       
+        
+
+        protected void Submit_Question(object sender, EventArgs e)
+        {
+            using (UserContext _db = new UserContext())
+            {
+                // Add question to DB.
+                var q = new Question();
+                q.Details = QuestionBox.Text;
+                q.Answered = false;
+                q.StudentNumber = Context.User.Identity.Name;
+                _db.Questions.Add(q);
+                _db.SaveChanges();
+                
+            }
+            Server.Transfer("Default.aspx", false);
+        }
     }
 }

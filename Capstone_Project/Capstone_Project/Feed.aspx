@@ -7,10 +7,10 @@
             </hgroup>
     <asp:ListView ID="ListView1" runat="server" DataKeyNames="QuestionID"
          ItemType="Capstone_Project.Models.Question" SelectMethod="GetQuestions" GroupItemCount="1">
-        <EmptyDataTemplate>
+         <EmptyDataTemplate>
                     <table >
                         <tr>
-                            <td>No Rejected Answers.</td>
+                            <td>No data was returned.</td>
                         </tr>
                     </table>
                 </EmptyDataTemplate>
@@ -25,10 +25,16 @@
                  <ItemTemplate>
                     <td runat="server">
                         <table>
+                           <tr>
+                                <td>
+                                    
+                                        <img src="/Images/question.png"
+                                            width="100" height="75" style="border: solid" /></a>
+                                </td>
+                            </tr>
                             <tr>
                             <tr>
                                 <td>
-                                    <a>
                                         <span>
                                             <%#:Item.Details%>
                                         </span>
@@ -38,9 +44,6 @@
                                         <b>Answer: </b><%#:String.Format("{0}", Item.Answer)%> 
                                     </span>
                                     <br />
-                                    <span>
-                                        <%#:String.Format("{0}", Item.TimeAsked.ToShortDateString())%> 
-                                    </span>
                                 </td>
                             </tr>
                             <tr>

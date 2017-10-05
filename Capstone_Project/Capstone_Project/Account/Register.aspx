@@ -26,7 +26,6 @@
                     CssClass="text-danger" Display="Dynamic" ErrorMessage="The Student Number field is required." />
             </div>
         </div>
-        <%--
         <div class="form-group"> 
              <asp:Label runat="server" AssociatedControlID="categoryList" CssClass="col-md-2 control-label">Role</asp:Label>  
              <div class="col-md-10">    
@@ -40,7 +39,7 @@
                  
             </asp:DropDownList>
                  </div>
-        </div>--%>
+        </div>
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
             <div class="col-md-10">

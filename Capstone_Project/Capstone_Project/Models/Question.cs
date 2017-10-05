@@ -15,19 +15,11 @@ namespace Capstone_Project.Models
         [Display(Name = "Answer")]
         public string Answer { get; set; }
 
+        [Display(Name = "Answered Status")]
         public bool Answered { get; set; }
 
-        public bool Share {get; set;}
-
-        public bool Accepted { get; set; }
-
-        public DateTime TimeAsked { get; set; }
-
-        [Display(Name = "Questioner")]
-        public string Questioner { get; set;}
-
-        [Display(Name = "Mentor")]
-        public string Mentor { get; set; }
+        [Display(Name = "User")]
+        public string StudentNumber { get; set; }
 
         public virtual ICollection<Question> Questions { get; set; }
     }

@@ -75,24 +75,7 @@ namespace Capstone_Project
             {
                 adminLink.Visible = true;
             }
-            if((System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
-            {
-                answeredQuestions.Visible = true;
-            }
         }
-
-        protected void Page_PreRender(object sender, EventArgs e)
-        {
-            using (UserContext db=new UserContext())
-            {
-                var query = db.Questions.Where(q => (q.Questioner == Context.User.Identity.Name && q.Answered && !q.Accepted)).Count();
-                answeredQuestions.InnerText = string.Format("My Questions ({0})", query);   
-            }
-           
-               
-            
-        }
-
         public IQueryable<Role> GetRoles()
         {
             var _db = new Capstone_Project.Models.UserContext();
